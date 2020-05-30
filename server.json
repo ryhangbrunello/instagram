@@ -2,13 +2,31 @@
   "feed": [
     {
       "id": 1,
-      "image": "https://i.pinimg.com/originals/26/ea/fc/26eafc0b14488fea03fa8fa9751203ff.jpg",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
       "description": "Are you working for your dreams?",
       "authorId": 1
     },
     {
-      "id": 1,
-      "image": "https://i.pinimg.com/originals/26/ea/fc/26eafc0b14488fea03fa8fa9751203ff.jpg",
+      "id": 2,
+      "image": "https://cdn.pixabay.com/photo/2018/08/21/23/29/fog-3622519_960_720.jpg",
+      "description": "Are you working for your dreams?",
+      "authorId": 1
+    },
+    {
+      "id": 3,
+      "image": "https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg",
+      "description": "Are you working for your dreams?",
+      "authorId": 1
+    },
+    {
+      "id": 4,
+      "image": "https://cdn.pixabay.com/photo/2018/11/17/22/15/tree-3822149_960_720.jpg",
+      "description": "Are you working for your dreams?",
+      "authorId": 1
+    },
+    {
+      "id": 5,
+      "image": "https://cdn.pixabay.com/photo/2018/10/19/12/14/wintry-3758523_960_720.jpg",
       "description": "Are you working for your dreams?",
       "authorId": 1
     }
@@ -16,8 +34,8 @@
   "authors": [
     {
       "id": 1,
-      "name": "jr_acn",
-      "avatar": "https://avatars0.githubusercontent.com/u/6952134?s=50"
+      "name": "ryhangbrunello",
+      "avatar": "https://avatars1.githubusercontent.com/u/41837187?s=400&u=63683b44613854881f1e214ec4bf2e3f68c0ef35&v=4"
     }
   ]
 }

@@ -8,22 +8,34 @@ interface Props {
   status: boolean
 }
 
-export class CameraApp extends Component<Props> {
+interface State {
+  typeCamera: any
+}
+
+export class CameraApp extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+
+    this.state ={
+      typeCamera: RNCamera.Constants.Type.back
+    }
+  }
+
   render() {
+
     const PendingView = () => (
-      <View
-        style={{
-          backgroundColor: 'lightgreen',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Text>Carregando</Text>
-      </View>
+      <View style={styles.pending}><Text>Carregando...</Text></View>
     );
 
-
     const status = this.props.status;
+
+    const cameraMode = () => {
+      if(this.state.typeCamera === RNCamera.Constants.Type.front) {
+        this.setState({typeCamera: RNCamera.Constants.Type.back})
+      } else {
+        this.setState({typeCamera: RNCamera.Constants.Type.front})
+      }
+    }
 
     return (
       <View>
@@ -32,7 +44,7 @@ export class CameraApp extends Component<Props> {
             <RNCamera
               captureAudio={false}
               style={styles.preview}
-              type={RNCamera.Constants.Type.front}
+              type={this.state.typeCamera}
               androidCameraPermissionOptions={{
                 title: 'Permission to use camera',
                 message: 'We need your permission to use your camera',
@@ -44,11 +56,14 @@ export class CameraApp extends Component<Props> {
                 if (status !== 'READY') return <PendingView />;
                 return (
                   <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                    <TouchableOpacity onPress={() => cameraMode()} style={styles.capture}>
+                      <Text style={{ fontSize: 14 }}>Camera</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.takePicture(camera)} style={styles.capture}>
                       <Text style={{ fontSize: 14 }}>Fotografar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.cancel()} style={styles.capture}>
-                      <Text style={{fontSize: 14}}>Cancelar</Text>
+                      <Text style={{ fontSize: 14 }}>Cancelar</Text>
                     </TouchableOpacity>
                   </View>
                 );
@@ -96,5 +111,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignSelf: 'center',
     margin: 20,
+  },
+  pending: {
+    backgroundColor: 'lightgreen',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
